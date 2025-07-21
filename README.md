@@ -9,7 +9,7 @@
 | July 21    | 3 problems ✅        |
 | ...        | ...                 |
 
-_(Update this table daily to track progress!)_
+//_(Update this table daily to track progress!)_
 
 ---
 
@@ -21,7 +21,6 @@ _(Update this table daily to track progress!)_
 - Stack & Queue
 - Binary Trees
 - Recursion & Backtracking
-- Dynamic Programming
 - Heap / Priority Queue
 - Graphs
 - Sliding Window
@@ -40,7 +39,7 @@ If you have any **doubts**, suggestions, or want to **contribute** to this repos
 
 - [LeetCode Top 150 Questions](https://leetcode.com/list/xxxyz/top-interview-150)
 - Java Documentation
-- Love Babbar DSA Sheet (for structured topic-wise practice)
+- Striver DSA Sheet (for structured topic-wise practice)
 
 ---
 
