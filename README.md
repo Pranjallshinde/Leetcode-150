@@ -15,6 +15,7 @@ This structured and consistent approach helps me build strong fundamentals in **
 ## 💻 Language Used
 
 All solutions are implemented in **Java**.
+
 ---
 
 ## 🚀 Progress Tracker
