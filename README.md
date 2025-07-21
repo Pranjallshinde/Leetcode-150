@@ -9,7 +9,7 @@
 | July 21    | 3 problems ✅        |
 | ...        | ...                 |
 
-//_(Update this table daily to track progress!)_
+
 
 ---
 
