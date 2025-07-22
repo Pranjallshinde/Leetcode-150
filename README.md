@@ -24,7 +24,7 @@ All solutions are implemented in **Java**.
 |------------|---------------------|
 | July 20    | 3 problems ✅        |
 | July 21    | 3 problems ✅        |
-| ...        | ...                 |
+| July 22    | 3 problems ✅              |
 
 
 
