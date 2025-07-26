@@ -16,17 +16,6 @@ This structured and consistent approach helps me build strong fundamentals in **
 
 All solutions are implemented in **Java**.
 
----
-
-## 🚀 Progress Tracker
-
-| Date       | Problems Solved     |
-|------------|---------------------|
-| July 20    | 3 problems ✅        |
-| July 21    | 3 problems ✅        |
-| July 22    | 3 problems ✅              |
-
-
 
 ---
 
