@@ -18,7 +18,7 @@ class Solution {
             right++;
         }
 
-        return (minLen == Integer.MAX_VALUE) ? 0 : minLen;
+        return (minLen == Integer.MAX_VALUE) ? 0 : minLen; // if no such sub Array is present return 0
     }
 }
 
