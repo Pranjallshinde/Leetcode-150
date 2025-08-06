@@ -1,0 +1,32 @@
+class Solution {
+    public boolean wordPattern(String pattern, String s) {
+        String[] words = s.split(" "); // Split the sentence into words
+
+        // Step 1: Check if number of pattern letters == number of words
+        if (pattern.length() != words.length) return false;
+
+        HashMap<Character, String> map = new HashMap<>(); // patternChar -> word
+        HashSet<String> usedWords = new HashSet<>();      // to prevent duplicate words
+
+        for (int i = 0; i < pattern.length(); i++) {
+            char c = pattern.charAt(i);   // pattern character
+            String word = words[i];       // word from sentence
+
+            // Step 2: If the character already has a mapping
+            if (map.containsKey(c)) {
+                // If mapping is different from current word → invalid
+                if (!map.get(c).equals(word)) return false;
+            } else {
+                // Step 3: New mapping
+                // If the word is already mapped by another character → invalid
+                if (usedWords.contains(word)) return false;
+
+                // Else, create the mapping
+                map.put(c, word);
+                usedWords.add(word);
+            }
+        }
+
+        return true; // All pattern-character and word matchings are valid
+    }
+}
