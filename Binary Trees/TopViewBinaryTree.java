@@ -1,57 +1,45 @@
-import java.util.*;
+class Solution {
+    class Pair {
+        TreeNode node;
+        int hd;  // horizontal distance
 
-// Basic binary tree node
-class TreeNode {
-    int val;
-    TreeNode left, right;
-    TreeNode(int v) { val = v; }
-}
+        Pair(TreeNode n, int h) {
+            node = n;
+            hd = h;
+        }
+    }
 
-public class TopViewBinaryTree {
-    public static List<Integer> topView(TreeNode root) {
-        if (root == null) return Collections.emptyList();
+    public List<Integer> topView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
 
-        // Map hd -> first node value at that hd; TreeMap to get sorted order by hd
-        TreeMap<Integer, Integer> map = new TreeMap<>();
-        // Queue of pairs (node, hd)
-        Queue<Pair> q = new ArrayDeque<>();
-        q.add(new Pair(root, 0));
+        Map<Integer, Integer> map = new TreeMap<>();  // hd -> node.val
+        Queue<Pair> queue = new LinkedList<>();
 
-        while (!q.isEmpty()) {
-            Pair p = q.poll();
-            TreeNode node = p.node;
-            int hd = p.hd;
+        queue.offer(new Pair(root, 0));
 
-            // If hd not seen before, this is the topmost node for this hd
+        while (!queue.isEmpty()) {
+            Pair current = queue.poll();
+            TreeNode node = current.node;
+            int hd = current.hd;
+
             if (!map.containsKey(hd)) {
                 map.put(hd, node.val);
             }
 
-            if (node.left != null) q.add(new Pair(node.left, hd - 1));
-            if (node.right != null) q.add(new Pair(node.right, hd + 1));
+            if (node.left != null) {
+                queue.offer(new Pair(node.left, hd - 1));
+            }
+
+            if (node.right != null) {
+                queue.offer(new Pair(node.right, hd + 1));
+            }
         }
 
-        // Collect result in order of hd (left to right)
-        List<Integer> result = new ArrayList<>();
-        for (int val : map.values()) result.add(val);
+        for (int val : map.values()) {
+            result.add(val);
+        }
+
         return result;
     }
-
-    // small helper pair class
-    static class Pair {
-        TreeNode node;
-        int hd;
-        Pair(TreeNode n, int h) { node = n; hd = h; }
-    }
-
-    // Example
-    
-                 1
-               /   \
-              2     3
-               \   / \
-                4 5   6
-
-           Top view: 2 1 3 6
-      
 }
