@@ -1,0 +1,53 @@
+import java.util.*;
+
+// Definition for a binary tree node
+class TreeNode {
+    int val;
+    TreeNode left, right;
+    TreeNode(int x) { val = x; }
+}
+
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        // Final result list
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) return result;  // if tree is empty
+
+        // Queue for level order traversal (BFS)
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        // Direction flag: true → left to right, false → right to left
+        boolean leftToRight = true;
+
+        // Process each level of the tree
+        while (!queue.isEmpty()) {
+            int size = queue.size();              // number of nodes at this level
+            List<Integer> row = new ArrayList<>();// list to store values of this level
+
+            // Process all nodes in the current level
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll(); // remove node from queue
+
+                // Insert node's value depending on traversal direction
+                if (leftToRight) {
+                    row.add(node.val);      // normal left → right
+                } else {
+                    row.add(0, node.val);   // insert at beginning → right → left
+                }
+
+                // Add child nodes for the next level
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
+            }
+
+            // Save current level into result
+            result.add(row);
+
+            // Flip direction for next level
+            leftToRight = !leftToRight;
+        }
+
+        return result;
+    }
+}
