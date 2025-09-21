@@ -1,9 +1,3 @@
-// Definition for a binary tree node
-class TreeNode {
-    int val;
-    TreeNode left, right;
-    TreeNode(int x) { val = x; }
-}
 
 class Solution {
     public TreeNode insertIntoBST(TreeNode root, int val) {
