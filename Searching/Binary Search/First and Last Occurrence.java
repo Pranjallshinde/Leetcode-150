@@ -1,23 +1,21 @@
 //Time Complexity: O(log n) (binary search on both sides).
 //Space Complexity: O(1)
 
-  class FirstAndLastOccurrence {
+ class Solution {
     // Function to find first occurrence
-    public static int firstOccurrence(int[] arr, int target) {
-        int low = 0, high = arr.length - 1;
+    private int firstOccurrence(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
         int ans = -1;
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
 
-            if (arr[mid] == target) {
-                ans = mid; // possible answer
-                high = mid - 1; // look on left side for first occurrence
-            } 
-            else if (arr[mid] < target) {
+            if (nums[mid] == target) {
+                ans = mid;
+                high = mid - 1; // search on left side
+            } else if (nums[mid] < target) {
                 low = mid + 1;
-            } 
-            else {
+            } else {
                 high = mid - 1;
             }
         }
@@ -25,23 +23,28 @@
     }
 
     // Function to find last occurrence
-    public static int lastOccurrence(int[] arr, int target) {
-        int low = 0, high = arr.length - 1;
+    private int lastOccurrence(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
         int ans = -1;
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
 
-            if (arr[mid] == target) {
-                ans = mid; // possible answer
-                low = mid + 1; // look on right side for last occurrence
-            } 
-            else if (arr[mid] < target) {
+            if (nums[mid] == target) {
+                ans = mid;
+                low = mid + 1; // search on right side
+            } else if (nums[mid] < target) {
                 low = mid + 1;
-            } 
-            else {
+            } else {
                 high = mid - 1;
             }
         }
         return ans;
     }
+
+    public int[] searchRange(int[] nums, int target) {
+        int first = firstOccurrence(nums, target);
+        int last = lastOccurrence(nums, target);
+        return new int[] { first, last };
+    }
+}
