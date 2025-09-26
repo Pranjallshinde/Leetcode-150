@@ -1,0 +1,36 @@
+//O(n * log m)
+//O(1)
+
+class Solution {
+    public int rowWithMax1s(int[][] mat, int n, int m) {
+        int cnt_max = 0;
+        int index = -1;
+
+        for (int i = 0; i < n; i++) {
+            int cnt_ones = m - lowerBound(mat[i], m);
+            if (cnt_ones > cnt_max) {
+                cnt_max = cnt_ones;
+                index = i;
+            }
+        }
+        return index;
+        
+    }
+    private int lowerBound(int[] row, int m) {
+        int low = 0, high = m - 1;
+        int result = -1;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            if (row[mid] == 1) {
+                result = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return result;
+        }
+    }
+}
