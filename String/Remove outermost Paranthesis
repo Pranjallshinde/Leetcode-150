@@ -1,3 +1,6 @@
+//Time: O(n)
+//Space: O(1)
+
 public class Solution {
     public String removeOuterParentheses(String S) {
         int cnt = 0;  // Tracks depth of parentheses
