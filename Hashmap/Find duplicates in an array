@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class FindDuplicates {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 2, 4, 3};
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> duplicates = new ArrayList<>();
+
+        // Count frequency
+         for (int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        // Collect duplicates using normal for loop
+        for (int key : map.keySet()) {
+            if (map.get(key) > 1) {
+                duplicates.add(key);
+            }
+        }
+
+        System.out.println("Duplicates: " + duplicates);
+    }
+}
