@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class MajorityElement {
+    public static int majorityElement(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int n = nums.length;
+
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+
+            if (map.get(num) > n) {
+                return num;
+            }
+        }
+
+        return -1; // won't reach here if majority element always exists
+    }
+
+    public static void main(String[] args) {
+        int[] nums1 = {3, 3, 4, 2, 3, 3, 3};
+        int[] nums2 = {2, 2, 1, 1, 1, 2, 2};
+
+        System.out.println(majorityElement(nums1)); // 3
+        System.out.println(majorityElement(nums2)); // 2
+    }
+}
