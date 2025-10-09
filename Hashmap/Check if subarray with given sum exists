@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Solution {
+    public boolean subarraySumExists(int[] arr, int target) {
+        Set<Integer> set = new HashSet<>();
+        int prefixSum = 0;
+
+        for (int num : arr) {
+            prefixSum += num;
+
+            // Case 1: subarray from start
+            if (prefixSum == target)
+                return true;
+
+            // Case 2: subarray in between
+            if (set.contains(prefixSum - target))
+                return true;
+
+            set.add(prefixSum);
+        }
+
+        return false;
+    }
+}
