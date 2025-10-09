@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class CharFrequency {
+    public static void main(String[] args) {
+        String s = "banana";
+        Map<Character, Integer> map = new HashMap<>();
+
+        for (char c : s.toCharArray()) {
+            // Check if the character is already in the map
+            if (map.containsKey(c)) {
+                // If yes → increase its count
+                map.put(c, map.get(c) + 1);
+            } else {
+                // If not → add it with count 1
+                map.put(c, 1);
+            }
+        }
+
+        System.out.println(map);
+    }
+}
